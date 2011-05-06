@@ -53,9 +53,9 @@
         // css3 transitions
         transition: function(params) {
             var p = params.split(" "),
-                property = p[0],
-                duration = p[1],
-                timing_function = p[2],
+                property = p[0] ? p[0] : "",
+                duration = p[1] ? p[1] : "",
+                timing_function = p[2] ? p[2] : "",
                 pStr, dStr, tStr, result, goLong = false;
 
             // allow properties to be comma delim
