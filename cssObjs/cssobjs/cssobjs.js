@@ -431,11 +431,15 @@
 		//Turn the string into valid css and evaluate any functions / global variables
 		//Doing this quick if/else avoids unecessary processing
 		var css = function(cssObj) {
-			if(cssObj.indexOf('$') == -1){
+			if($.type(cssObj) === "string") {
+                            if(cssObj.indexOf('$') == -1) {
 				return cssObj;
-			} else {
+			    } else {
 				return parseStyle(prepareForParse(cssObj));
-			}	
+                            }
+			} else {
+                            return cssObj;
+                        }	
 		};//end:function
 		
 		
