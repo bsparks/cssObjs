@@ -44,11 +44,9 @@
         // TODO: IE6-IE9 support
         rotate: function(params) {
             // params should be single angle (default degrees)
-            return [["-moz-transform:rotate(", params, "deg)"].join(''), // FF 3.5+
-            ["-o-transform:rotate(", params, "deg)"].join(''), // Opera 10.5
-            ["-webkit-transform:rotate(", params, "deg)"].join(''), // Safari 3.1+, Chrome
-            ["-ms-transform:rotate(", params, "deg)"].join(''), // IE9
-            ["transform:rotate(", params, "deg)"].join('')].join(';') + ';';
+            return $.map(browsers, function(b) {
+                    return [[b, "transform:rotate("].join(''), params, "deg)"].join('')
+                }).join(';\n') + ';\n';
         },
         // css3 transitions
         transition: function(params) {
