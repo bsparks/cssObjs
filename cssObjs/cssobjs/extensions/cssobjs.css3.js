@@ -1,4 +1,4 @@
-function($, undefined) {
+(function($, undefined) {
 
     //CSS3 Extension using cssObjs functions
     //Adds functions that manipulate css values
